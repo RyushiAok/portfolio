@@ -1,0 +1,24 @@
+env_files = [
+    { path = "./.env.local", profile = "development" },
+    { path = "./.env", profile = "production" },
+]
+
+[env]
+PROJECT_NAME = "portfolio"
+DOCKER_COMPOSE_LOCAL = "./docker/docker-compose.local.yaml"
+DOCKER_COMPOSE_LOCAL_DATABASE = "./docker/docker-compose.db.yaml"
+DOCKER_COMPOSE_LOCAL_API = "./docker/docker-compose.server.yaml"
+
+[tasks.down]
+script_runner = "@shell"
+script = "docker compose -p ${PROJECT_NAME} down --rmi all --volumes --remove-orphans"
+
+[tasks.up]
+dependencies = ["down"]
+script_runner = "@shell"
+script = """
+docker compose -p ${PROJECT_NAME} \
+    -f ${DOCKER_COMPOSE_LOCAL} \
+    -f ${DOCKER_COMPOSE_LOCAL_API} \
+    --env-file ${ENV} up -d
+"""
