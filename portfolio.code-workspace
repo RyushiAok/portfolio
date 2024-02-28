@@ -2,10 +2,10 @@
   "folders": [
     {
       "path": "."
+    },
+    {
+      "path": "client"
     }
-    // {
-    //   "path": "client"
-    // },
     // {
     //   "path": "server"
     // }
