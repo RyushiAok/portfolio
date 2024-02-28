@@ -10,7 +10,7 @@
     "format": "biome format --write ./app",
     "start": "wrangler pages dev --compatibility-date=2023-06-21 ./public",
     "typecheck": "tsc",
-    "deploy": "pnpm run build && wrangler pages deploy ./public"
+    "deploy": "pnpm run build && wrangler pages deploy ./public --project-name portfolio"
   },
   "dependencies": {
     "@radix-ui/colors": "^3.0.0",
