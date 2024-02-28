@@ -16,22 +16,22 @@ export const Header = () => (
       overscrollBehaviorY: 'contain',
     }}
   >
-    <Flex justify="between" align="center">
-      <Flex gap="4" align="center">
+    <Flex justify="between">
+      <Flex gap="4" align="center" pl="2">
         <Avatar
           src="https://avatars.githubusercontent.com/u/55625375?v=4"
           fallback="A"
           size={'2'}
         />
-        <Heading align="center" size="3">
-          RyushiAok.dev
-        </Heading>
+        <Heading size="3">RyushiAok.dev</Heading>
       </Flex>
-      <Flex gap="4">
+      <Flex gap="4" pr="2" align="center">
         <a
           href="https://github.com/RyushiAok"
           target="_blank"
+          rel="noopener noreferrer"
           style={{
+            display: 'flex',
             textDecoration: 'none',
             color: 'white',
           }}
