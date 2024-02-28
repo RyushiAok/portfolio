@@ -52,3 +52,5 @@ jobs:
           projectName: portfolio
           directory:  ./client/public
           gitHubToken: ${{ secrets.GITHUB_TOKEN }}
+          branch: main
+          wranglerVersion: '3'
