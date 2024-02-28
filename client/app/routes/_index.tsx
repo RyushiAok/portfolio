@@ -11,14 +11,12 @@ export default function Index() {
     <Container size={'2'}>
       <Box pt={'8'} />
 
-      <Flex gap={'4'} direction='row' wrap="wrap" justify="center">
-        {
-          Array.from({ length: 8 }).map((_, i) => (
-            <DummyBox>
-              <div style={{ height: "180px", width: "300px" }} />
-            </DummyBox>
-          ))
-        }
+      <Flex gap={'4'} direction="row" wrap="wrap" justify="center">
+        {Array.from({ length: 8 }).map((_, i) => (
+          <DummyBox>
+            <div style={{ height: '180px', width: '300px' }} />
+          </DummyBox>
+        ))}
       </Flex>
     </Container>
   )
