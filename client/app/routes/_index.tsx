@@ -1,10 +1,10 @@
-import { Box, Container, Flex } from '@radix-ui/themes'
+import { Box, Container, Grid } from '@radix-ui/themes'
 import type { MetaFunction } from '@remix-run/cloudflare'
 import { DummyBox } from '~/ui/dummy-box'
 
 export const meta: MetaFunction = () => {
   return [
-    { title: 'New Remix App' },
+    { title: 'ryushiaok.dev' },
     {
       name: 'description',
       content: 'Welcome to Remix! Using Vite and Cloudflare!',
@@ -14,16 +14,16 @@ export const meta: MetaFunction = () => {
 
 export default function Index() {
   return (
-    <Container size={'2'}>
+    <Container>
       <Box pt={'8'} />
-      <Flex gap={'4'} direction="row" wrap="wrap" justify="center">
-        {Array.from({ length: 8 }).map((_, i) => (
+      <Grid columns={{ initial: '1', sm: '3', md: '4' }} gap="4" width="auto" px="3">
+        {Array.from({ length: 16 }).map((_, i) => (
           // biome-ignore lint/suspicious/noArrayIndexKey: <explanation>
           <DummyBox key={i}>
-            <div style={{ height: '180px', width: '320px' }} />
+            <div style={{ height: '180px' }} />
           </DummyBox>
         ))}
-      </Flex>
-    </Container>
+      </Grid>
+    </Container >
   )
 }
