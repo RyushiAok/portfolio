@@ -1,6 +1,7 @@
 import { style, styleVariants } from '@vanilla-extract/css'
 
 const baseStyle = style({
+  position: 'fixed',
   padding: '0.5rem 0',
   backdropFilter: 'blur(0.25rem)',
   top: 0,

@@ -1,7 +1,7 @@
-import { Theme } from '@radix-ui/themes'
+import { Box, Theme } from '@radix-ui/themes'
 import '@radix-ui/themes/styles.css'
 import { Links, Meta, Outlet, Scripts, ScrollRestoration } from '@remix-run/react'
-import { Header } from '~/ui/header/header'
+import { Header } from '~/ui/header'
 
 export function Layout({ children }: { children: React.ReactNode }) {
   return (
@@ -15,6 +15,7 @@ export function Layout({ children }: { children: React.ReactNode }) {
       <body>
         <Theme appearance="dark">
           <Header />
+          <Box py={'6'} />
           {children}
         </Theme>
         <ScrollRestoration />
