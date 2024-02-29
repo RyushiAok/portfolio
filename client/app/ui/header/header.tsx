@@ -37,7 +37,7 @@ const IconLink = ({
     style={{
       display: 'flex',
       textDecoration: 'none',
-      color: 'white',
+      color: 'inherit',
     }}
   >
     {children}
@@ -52,7 +52,12 @@ export const Header = () => {
     <header className={[headerStyle[visibility]].join(' ')}>
       <Flex justify="between" py="2" px="4">
         <Flex gap="4" align="center">
-          <Avatar size='2' src="https://avatars.githubusercontent.com/u/55625375?v=4" alt="Icon" fallback={'A'} />
+          <Avatar
+            size="2"
+            src="https://avatars.githubusercontent.com/u/55625375?v=4"
+            alt="Icon"
+            fallback={'A'}
+          />
           <Heading size="3">RyushiAok</Heading>
         </Flex>
         <Flex gap="4" align="center">

@@ -1,3 +1,4 @@
+import { grayDark, whiteA } from '@radix-ui/colors'
 import { Box, Theme } from '@radix-ui/themes'
 import '@radix-ui/themes/styles.css'
 import { Links, Meta, Outlet, Scripts, ScrollRestoration } from '@remix-run/react'
@@ -13,9 +14,16 @@ export function Layout({ children }: { children: React.ReactNode }) {
         <Links />
       </head>
       <body>
-        <Theme appearance="dark">
+        <Theme
+          appearance="dark"
+          style={{
+            backgroundColor: grayDark.gray2,
+            color: whiteA.whiteA9,
+          }}
+        >
           <Header />
           <Box py={'6'} />
+
           {children}
         </Theme>
         <ScrollRestoration />
