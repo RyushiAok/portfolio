@@ -19,6 +19,7 @@ export function Layout({ children }: { children: React.ReactNode }) {
           style={{
             backgroundColor: grayDark.gray2,
             color: whiteA.whiteA9,
+            lineHeight: 1.6,
           }}
         >
           <Header />

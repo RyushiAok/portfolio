@@ -7,6 +7,7 @@ const baseStyle = style({
   top: 0,
   left: 0,
   right: 0,
+  zIndex: 1000,
   overscrollBehaviorY: 'contain',
   transition: 'visibility 0.2s, opacity 0.2s',
 })

@@ -17,7 +17,8 @@
         "noUselessLoneBlockStatements": "off"
       },
       "complexity": {
-        "useSimplifiedLogicExpression": "off"
+        "useSimplifiedLogicExpression": "off",
+        "noUselessFragments": "off"
       }
     }
   },

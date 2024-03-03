@@ -1,6 +1,8 @@
 import { whiteA } from '@radix-ui/colors'
-import { Box, Container, Flex, Heading, Separator } from '@radix-ui/themes'
+import { Box, Container, Flex, Heading, Separator, Text } from '@radix-ui/themes'
 import type { MetaFunction } from '@remix-run/cloudflare'
+import { Link } from '@remix-run/react'
+import { ReactNode } from 'react'
 import { ReadMore } from '~/ui/link'
 // https://remix.run/docs/en/2.1.0/components/link#unstable_viewtransition
 
@@ -14,8 +16,14 @@ export const meta: MetaFunction = () => {
   ]
 }
 
-const dummy_text =
-  'Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium. Integer tincidunt. Cras dapibus. Vivamus elementum semper nisi. '
+const dummy_text = (
+  <>
+    Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor.
+    Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus
+    mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa
+    quis enim.
+  </>
+)
 
 const Tag = ({
   logo,
@@ -68,13 +76,15 @@ const Tag = ({
 const Work = ({
   title,
   tags,
+  summary,
 }: {
   title: string
   tags: ('F#' | 'Terraform' | 'FuncUI')[]
+  summary: ReactNode
 }) => {
   return (
     <>
-      <Box px="1" py="5">
+      <Box px="1" py="4">
         <Flex align="baseline" gap="3" direction="row" justify="start">
           <Flex align="center">
             <Heading size="8">{title}</Heading>
@@ -86,18 +96,16 @@ const Work = ({
             <Tag logo={tag} />
           ))}
         </Flex>
-        <Box py="4">
-          <Heading
-            size="4"
+        <Box pt="3" pb="2">
+          <Text
+            size="3"
+            weight="medium"
             style={{
-              display: '-webkit-box',
-              WebkitLineClamp: 3,
-              WebkitBoxOrient: 'vertical',
-              overflow: 'hidden',
+              overflow: 'break-word',
             }}
           >
-            {dummy_text}
-          </Heading>
+            {summary}
+          </Text>
         </Box>
         <Box>
           <Flex justify="end" align="center">
@@ -113,11 +121,57 @@ export default function Index() {
   return (
     <>
       <Container size="2" px="1" pt="6">
-        <Heading size="9">Works</Heading>
-        <Work title="Tetris" tags={['F#', 'FuncUI']} />
-        <Work title="MorPhoto" tags={['F#']} />
-        <Work title="DuckStream" tags={['F#', 'Terraform']} />
-        <Work title="Toolbox" tags={['F#']} />
+        <Heading size="9" mb="6">
+          Works
+        </Heading>
+        <Work
+          title="Tetris"
+          tags={['F#', 'FuncUI']}
+          summary={
+            <>
+              F# Tetris implementation with special spinnable support and Elmish state management
+              through Avalonia.FuncUI. This has been added to the official
+              <Text weight="bold" mx="1">
+                <Link to="https://github.com/fsprojects/Avalonia.FuncUI">
+                  fsprojects/Avalonia.FuncUI
+                </Link>
+              </Text>
+              repository as an example 🎉
+            </>
+          }
+        />
+        <Work
+          title="MorPhoto"
+          tags={['F#']}
+          summary={
+            <>
+              <Text weight="bold" mr="1">
+                <Link to="https://www.morphoto.app/create">MorPhoto</Link>
+              </Text>
+              is a AI-Driven Morphing Photographs Service. This service that allows you to generate
+              images by inputting an initial image and prompt. So why not have some fun and freely
+              transform SNS icons, header images, and more? Once you've crafted some intriguing
+              images, don't hesitate to share them with others!
+            </>
+          }
+        />
+        <Work
+          title="DuckStream"
+          tags={['F#', 'Terraform']}
+          summary={
+            <>
+              The application we developed for the
+              <Text weight="bold" mx="1">
+                <Link to="https://blog.camph.net/news/kamogawa-hackathon-2023/">
+                  Kamogawa Hackathon
+                </Link>
+              </Text>
+              uses location data to create line drawings, which are then transformed by a diffusion
+              model. Walking along the banks of the Kamogawa River for debugging was a highlight for
+              me.
+            </>
+          }
+        />
       </Container>
     </>
   )

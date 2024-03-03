@@ -19,7 +19,7 @@ export default function Index() {
   return (
     <>
       <Container size="2" px="1" pt="6">
-        <Heading size="9">Tetris</Heading>
+        <Heading size="9">Dummy</Heading>
         <Box py="5">
           <Box>
             <Heading size="4">{dummy_text}</Heading>
