@@ -9,7 +9,7 @@ import {
 } from "@radix-ui/themes";
 import type { MetaFunction } from "@remix-run/cloudflare";
 import { Link } from "@remix-run/react";
-import { ReactNode } from "react";
+import type { ReactNode } from "react";
 import { ReadMore } from "~/ui/link";
 // https://remix.run/docs/en/2.1.0/components/link#unstable_viewtransition
 
@@ -22,16 +22,6 @@ export const meta: MetaFunction = () => {
     },
   ];
 };
-
-const dummy_text = (
-  <>
-    Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo
-    ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis
-    parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec,
-    pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim.
-  </>
-);
-
 const Tag = ({
   logo,
 }: {
@@ -84,10 +74,12 @@ const Work = ({
   title,
   tags,
   summary,
+  readmore,
 }: {
   title: string;
   tags: ("F#" | "Terraform" | "FuncUI")[];
   summary: ReactNode;
+  readmore?: string;
 }) => {
   return (
     <>
@@ -99,8 +91,8 @@ const Work = ({
         </Flex>
         <Separator size="4" my="3" />
         <Flex direction="row" gap="3">
-          {tags.map((tag) => (
-            <Tag logo={tag} />
+          {tags.map((tag, i) => (
+            <Tag logo={tag} key={`${title}_${tag}`} />
           ))}
         </Flex>
         <Box pt="3" pb="2">
@@ -116,7 +108,7 @@ const Work = ({
         </Box>
         <Box>
           <Flex justify="end" align="center">
-            <ReadMore />
+            <ReadMore to={readmore} />
           </Flex>
         </Box>
       </Box>
@@ -147,6 +139,7 @@ export default function Index() {
               repository as an example 🎉
             </>
           }
+          readmore="https://github.com/RyushiAok/Tetris"
         />
         <Work
           title="MorPhoto"
@@ -163,6 +156,7 @@ export default function Index() {
               images, don't hesitate to share them with others!
             </>
           }
+          readmore="https://github.com/Doer-org/MorPhoto"
         />
         <Work
           title="DuckStream"
@@ -180,6 +174,7 @@ export default function Index() {
               Kamogawa River for debugging was a highlight for me.
             </>
           }
+          readmore="https://github.com/Doer-org/DuckStream"
         />
       </Container>
     </>

@@ -3,9 +3,9 @@ import { Box } from "@radix-ui/themes";
 import { Link } from "@remix-run/react";
 import { readmoreStyle } from "./readmore-style.css";
 
-export const ReadMore = () => {
+export const ReadMore = ({ to = "/dummy" }: { to?: string }) => {
   return (
-    <Link to="/dummy" className={readmoreStyle}>
+    <Link to={to} className={readmoreStyle} unstable_viewTransition>
       <ArrowRightIcon width="1.5rem" height="1.5rem" />
       <Box>Read more</Box>
     </Link>
